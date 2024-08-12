@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>{{title}}</title>
+     <link rel="stylesheet" href="bootstrap.min.css" />
+</head>
+<style>
+     body {
+          position: relative;
+          height: 26rem;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     }
+
+     .container-fluid {
+          width: 97%;
+          height: 100%;
+          margin: 10px auto;
+          background-color: white;
+          border-radius: 20px;
+          overflow-x: scroll;
+          position: relative;
+          box-shadow: 1px 2px 3px 1px gray;
+          padding: 0;
+          display: flex;
+          font-family: Georgia, 'Times New Roman', Times, serif;
+     }
+
+     #sidebar {
+          border-right: 1px solid rgb(40, 28, 11);
+          width: 26%;
+          height: 100%;
+          /* background-color: blue; */
+          position: relative;
+
+     }
+
+     .profile {
+          /* background-color: aqua; */
+          width: 100%;
+          height: 40%;
+          margin-top: 3%;
+
+     }
+
+     .details {
+          width: 90%;
+
+     }
+
+     /* img {
+                    width: 2.3cm;
+                    height: 2.3cm;
+                    border-radius: 50%;
+          } */
+
+     p {
+          font-family: Arial, Helvetica, sans-serif;
+     }
+
+     .container-fluid::-webkit-scrollbar {
+          width: 120px;
+     }
+
+     #main {
+          width: 45%;
+          height: auto;
+          flex-direction: column;
+          justify-content: center;
+          border-right: 1px solid black;
+          overflow: scroll;
+          align-items: center;
+
+     }
+
+     .in {
+          background-color: rgb(242, 218, 222);
+          border-radius: 10px;
+          margin: 5px;
+          width: 10cm;
+          height: 10cm;
+          display: flex;
+
+          align-items: center;
+          flex-direction: column;
+          padding: 10px;
+     }
+
+     .search {
+          width: 100%;
+          text-align: center;
+          margin: 10px 0;
+          display: flex;
+          background-color: aquamarine;
+          justify-content: space-between;
+     }
+
+     .in img {
+          border-radius: 10px;
+          width: 70%;
+          height: 60%;
+     }
+
+     #sidebar .profile {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+     }
+
+     #sidebar .profile img {
+          width: 2cm;
+          height: 2cm;
+          border-radius: 50%;
+          margin-right: 5px;
+          object-fit: cover;
+     }
+
+     .in .profile {
+          display: flex;
+          align-items: center;
+          height: auto;
+     }
+
+     .profile-in {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+     }
+
+     .profile img {
+          width: 1cm;
+          height: 1cm;
+          border-radius: 100%;
+          margin-right: 10px;
+     }
+
+     .out_profile img {
+          width: 1cm;
+          height: 1cm;
+          border-radius: 100%;
+          margin-right: 10px;
+     }
+
+     .out_profile {
+          display: flex;
+          align-items: center;
+     }
+
+     .comment p {
+          font-size: 0.7rem;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     }
+
+     input {
+          width: 60%;
+          border: none;
+          border-radius: 4px;
+          border: 0.3px solid gray;
+     }
+
+     .feeds {
+          margin: auto;
+          width: 10cm;
+          height: auto;
+          margin-bottom: 10px;
+          background-color: rgb(255, 229, 172);
+          text-align: center;
+          box-shadow: 1px 2px 5px gray;
+          padding: 20px;
+          border-radius: 20px;
+     }
+
+
+
+     .posts {
+          width: 99%;
+          margin: auto;
+          background-size: cover;
+          border-radius: 10px;
+          object-fit: fill;
+          overflow: hidden;
+          height: auto;
+          display: flex;
+          background-color: #fff;
+          transition: 10ms linear;
+          cursor: pointer;
+
+     }
+
+     .posts img {
+          width: 100%;
+          background-size: cover;
+          height: 100%;
+          object-fit: cover;
+     }
+
+     .posts:hover {
+          transform: scale(1.04);
+          box-shadow: 1px 1px 7px 1px rgb(241, 129, 112);
+     }
+
+     .test {
+          background-color: #fbd4d4;
+          border-radius: 20px;
+          width: 15cm;
+          margin: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 10px;
+          padding: 10px;
+     }
+
+     .test img {
+          width: 70%;
+          height: auto;
+          border-radius: 10px;
+     }
+
+     #profile_not_uploaded {
+          width: 1cm;
+          height: 1cm;
+          border-radius: 100%;
+          margin-right: 10px;
+          background-color: #918b8b;
+     }
+</style>
+
+<body>
+     <div class="container-fluid">
+          <div id="sidebar">
+               <a href="login_user.html">Login</a>
+
+               <div class="profile">
+                    <div class="profile-in">
+                         <img src="/static/k3.jpg">
+                         <p>Krish Vora</p>
+                    </div>
+                    <div class="details">
+                         <p>Feeds</p>
+                         <p>messages</p>
+                         <p>forum</p>
+                         <p>Friends</p>
+
+
+
+                    </div>
+               </div>
+          </div>
+          <div id="main">
+               <div class="search">
+                    <p>Feeds</p>
+                    <input type="text" placeholder="search">
+               </div>
+               <div class="in">
+                    <div class="profile">
+                         <img src={{profile}} alt="">
+                         <p>Krish Prajapti</p>
+                    </div>
+                    <div class="comment">
+                         <p>Vachchharaj Caterers ,
+                              Owner Of Vachchharaj Caterers Is Parehbhai Vora
+                              Address :- 403 ,sarthi Complex dhruvtarak society , ved road
+                              surat.
+                         </p>
+                    </div>
+                    <img src={{img}}>
+               </div>
+               <div class="in">
+                    <div class="profile">
+                         <img src={{profile1}} alt="">
+                         <p>Krish Prajapti</p>
+                    </div>
+                    <div class="comment">
+                         <p>Vachchharaj Caterers ,
+                              Owner Of Vachchharaj Caterers Is Parehbhai Vora
+                              Address :- 403 ,sarthi Complex dhruvtarak society , ved road
+                              surat.
+                         </p>
+                    </div>
+                    <img src={{img1}}>
+               </div>
+               <div class="in">
+                    <div class="profile">
+                         <img src=alt="">
+                         <p>Krish Prajapti</p>
+                    </div>
+                    <div class="comment">
+                         <p>Vachchharaj Caterers ,
+                              Owner Of Vachchharaj Caterers Is Parehbhai Vora
+                              Address :- 403 ,sarthi Complex dhruvtarak society , ved road
+                              surat.
+                         </p>
+                    </div>
+
+                    <img src={{img}} draggable="false">
+
+
+               </div>
+               <div class="in"></div>
+               <div class="in"></div>
+               <div class="in"></div>
+
+          </div>
+          <div id="story">
+
+          </div>
+
+     </div>
+     {% for a in list %}
+     <div class="feeds">
+          <div class="out_profile">
+               <img src={{a.profile}}>
+               <p>{{a.name}}</p>
+          </div>
+          <div class="comment">
+               <p>{{a.comment}}</p>
+          </div>
+          <div class="feed-in">
+               <div class="posts">
+                    <img src={{a.img}}>
+               </div>
+          </div>
+     </div>
+
+     {% endfor %}
+     {% for i in student_details %}
+
+     <p style="background-color: #9bf8f8;">{{i.name}} = {{i.Email}}</p>
+
+     {% endfor %}
+     {% for i in name %}
+     <p>{{i}}</p>
+     {% endfor %}
+
+
+     {% for i in post_data %}
+
+     <div class="feeds">
+          <div class="out_profile">
+               {% if i.profile %}
+               <img src="{{i.profile.url}}">
+               {% else %}
+               <img src="" id="profile_not_uploaded">
+               {% endif %}
+               <p>{{i.name}}</p>
+
+
+          </div>
+          <div class="comment">
+               {% if i.content %}<p>{{i.content}}</p>{% endif %}
+
+          </div>
+          <div class="feed-in">
+               <div class="posts">
+                    {% if i.img %}
+                    <img src="{{i.img.url}}">
+                    {% endif %}
+               </div>
+          </div>
+     </div>
+     {% endfor %}
+
+     <div class="feeds">
+          {% for i in post_data %}
+          {% if i.video %}
+          <video width="300" height="300" controls>
+               <source src="/media/media/Alakh_ke_Amal_Par.mp4" type="video/mp4">
+          </video>
+          {% endif %}
+          {% endfor %}
+     </div>
+</body>
+
+</html>
